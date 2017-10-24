@@ -1,0 +1,49 @@
+<script>
+  $( document ).ready(function() {
+
+    changeText(
+      $('span.service'),
+      $('span.location'),
+      ['ljudet', 'ljuset', 'tekniken', 'skärmen', 'draget', 'effekterna', 'tekniker'],
+      ['på festen', 'till brölloppet', 'på konferensen', 'på mässan', 'till konserten', 'till turnén'])
+
+    function changeText(obj, nextobj, arr, nextarr){
+      var oldtext = $(obj).html(),
+      newtext = false;
+
+      while(!newtext){
+        var text = arr[Math.floor(Math.random()*arr.length)];
+        if(text != oldtext) newtext = true;
+      }
+
+      $(obj).removeClass('flipInX');
+      $(obj).addClass('flipOutX');
+
+      setTimeout(function(){
+        $(obj).html(text);
+        $(obj).removeClass('flipOutX');
+        $(obj).addClass('flipInX');
+        setTimeout(function(){
+          changeText(nextobj, obj, nextarr, arr);
+        }, 250)
+
+      }, 750);
+    }
+  });
+</script>
+
+<div class="bigbanner">
+  {% include header.html %}
+  
+  <div class="wrapper bigbanner__content">
+    <article>
+      <h1>Vi fixar <span class="service animated">ljudet</span> <br /> <span class="location animated">på festen</span></h1>
+      <p>I want to talk about to things that are quite important to me. There are love and one my personal inadequacies. The thing is that I’m quite fond of love, I think that.</p>
+
+      <ul class="link-list">
+        <li><a href="#" class="btn cta">Kontakta oss</a></li>
+        <li><a href="#" class="btn">Läs mer</a></li>
+      </ul>
+    </article>
+  </div>
+</div>

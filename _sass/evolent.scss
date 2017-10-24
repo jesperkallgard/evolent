@@ -1,0 +1,12 @@
+$color-gradient-main-one: #C46F8E;
+$color-gradient-main-two: #49456B;
+$color-font-bright: #fff;
+$color-font-dark: #273D50;
+$color-cta: #FBCB74;
+
+@import "basic/gui";
+@import "basic/framework";
+@import "basic/fonts";
+@import "basic/header";
+
+@import "blocks/bigbanner";
